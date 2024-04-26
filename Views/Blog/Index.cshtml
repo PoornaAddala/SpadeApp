@@ -104,6 +104,19 @@
                                 </div>
                             </div>
                     
+                    <div class="col-xl-4 col-lg-5">
+                            <!-- Pass/Fail Pie Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Pass/Fail</h6>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="passFailChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    
                 </div>
             </div>
             <!-- Footer -->
@@ -130,6 +143,28 @@
 
     <!-- Chart Initialization and Data -->
     <script>
+
+             // Dummy data for pass and fail counts
+    const passFailData = {
+        labels: ['Pass', 'Fail'],
+        datasets: [{
+            data: [70, 30], // Sample data (number of students who passed and failed)
+            backgroundColor: ['#00b894', '#ff6b6b']
+        }]
+    };
+
+
+        // Pass/Fail Pie Chart
+        new Chart(document.getElementById('passFailChart'), {
+            type: 'pie',
+            data: passFailData,
+            options: {
+                legend: {
+                    position: 'right'
+                }
+            }
+        });
+
         // Dummy data for student performance scatter plot
         const studentPerformanceData = {
             course1: [
