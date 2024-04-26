@@ -132,25 +132,19 @@
     <!-- Custom scripts for all pages -->
     <script src="~/js/sb-admin-2.min.js"></script>
 
-    <!-- Chart Initialization and Data -->
     <script>
     // Dummy data for pass and fail counts
     const passFailData = {
-        labels: ['Pass', 'Fail'],
-        datasets: [{
-            data: [70, 30], // Sample data (number of students who passed and failed)
-            backgroundColor: ['#00b894', '#ff6b6b']
-        }]
+        course1: [70, 30], // Sample data (number of students who passed and failed) for course 1
+        course2: [60, 40], // Sample data for course 2
+        course3: [80, 20]  // Sample data for course 3
     };
 
     // Dummy data for grade ranges bar chart
     const gradeRangesData = {
-        labels: ['0-60', '61-70', '71-80', '81-90', '91-100'],
-        datasets: [{
-            label: 'Grade Range',
-            backgroundColor: ['#ff6b6b', '#f9ca24', '#00b894', '#0984e3', '#6c5ce7'],
-            data: [10, 20, 30, 25, 15] // Sample data (number of students in each range)
-        }]
+        course1: [10, 20, 30, 25, 15], // Sample data (number of students in each range) for course 1
+        course2: [15, 25, 35, 20, 5],  // Sample data for course 2
+        course3: [5, 15, 40, 30, 10]    // Sample data for course 3
     };
 
     // Dummy data for student performance scatter plot
@@ -178,8 +172,15 @@
     document.addEventListener('DOMContentLoaded', function () {
         const passFailChart = new Chart(document.getElementById('passFailChart'), {
             type: 'pie',
-            data: passFailData,
+            data: {
+                labels: ['Pass', 'Fail'],
+                datasets: [{
+                    data: passFailData.course1, // Default data for initial course
+                    backgroundColor: ['#00b894', '#ff6b6b']
+                }]
+            },
             options: {
+                responsive: true,
                 legend: {
                     position: 'right'
                 }
@@ -188,8 +189,16 @@
 
         const gradeRangesChart = new Chart(document.getElementById('gradeRangesChart'), {
             type: 'bar',
-            data: gradeRangesData,
+            data: {
+                labels: ['0-60', '61-70', '71-80', '81-90', '91-100'],
+                datasets: [{
+                    label: 'Grade Range',
+                    backgroundColor: ['#ff6b6b', '#f9ca24', '#00b894', '#0984e3', '#6c5ce7'],
+                    data: gradeRangesData.course1 // Default data for initial course
+                }]
+            },
             options: {
+                responsive: true,
                 legend: { display: false },
                 scales: {
                     xAxes: [{ gridLines: { display: false } }],
@@ -234,6 +243,7 @@
         });
     });
 </script>
+
 
 </body>
 </html>
