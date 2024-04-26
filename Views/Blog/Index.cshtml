@@ -70,52 +70,59 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <!-- Course Selection Dropdown -->
-                            <div class="mb-4">
-                                <label for="courseSelect">Select Course:</label>
-                                <select id="courseSelect" class="form-control">
-                                    <option value="course1">Math</option>
-                                    <option value="course2">DIS</option>
-                                    <option value="course3">Chemistry</option>
-                                </select>
-                            </div>
+    <div class="col-lg-6 mb-4">
+        <!-- Course Selection Dropdown -->
+        <div class="mb-4">
+            <label for="courseSelect">Select Course:</label>
+            <select id="courseSelect" class="form-control">
+                <option value="course1">Math</option>
+                <option value="course2">DIS</option>
+                <option value="course3">Chemistry</option>
+            </select>
+        </div>
+    </div>
 
-                            <!-- Grade Ranges Bar Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Grade Ranges</h6>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="gradeRangesChart" style="height: 300px;"></canvas>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-                            <!-- Student Performance Scatter Plot -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Student Performance</h6>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="studentPerformanceChart" style="height: 300px;"></canvas>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-                            <!-- Pass/Fail Pie Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Pass/Fail</h6>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="passFailChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Grade Ranges Bar Chart -->
+    <div class="col-lg-6 mb-4">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Grade Ranges</h6>
                     </div>
+                    <div class="card-body">
+                        <canvas id="gradeRangesChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <!-- Pass/Fail Pie Chart -->
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Pass/Fail</h6>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="passFailChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+        <!-- Student Performance Scatter Plot -->
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Student Performance</h6>
+            </div>
+            <div class="card-body">
+                <canvas id="studentPerformanceChart" style="height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
             <!-- Footer -->
