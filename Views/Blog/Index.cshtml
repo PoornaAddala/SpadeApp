@@ -1,5 +1,5 @@
 @{
-    Layout = null; // Indicates this view doesn't use a shared layout
+    ViewData["Title"] = "SPADE";
 }
 
 <!DOCTYPE html>
@@ -31,7 +31,6 @@
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <!-- <a class="nav-link" href="index.html"> -->
                 <a class="nav-link" href="@Url.Action("Index", "Home")">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Home Page</span>
@@ -71,43 +70,41 @@
 
                     <!-- Content Row -->
                     <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <!-- Course Selection Dropdown -->
+                            <div class="mb-4">
+                                <label for="courseSelect">Select Course:</label>
+                                <select id="courseSelect" class="form-control">
+                                    <option value="course1">Math</option>
+                                    <option value="course2">DIS</option>
+                                    <option value="course3">Chemistry</option>
+                                </select>
+                            </div>
 
-                    <!-- Course Selection Dropdown -->
-                    <div class="mb-4">
-                        <label for="courseSelect">Select Course:</label>
-                        <select id="courseSelect" class="form-control">
-                            <option value="course1">Math</option>
-                            <option value="course2">DIS</option>
-                            <option value="course3">Chemistry</option>
-                        </select>
-                    </div>
+                            <!-- Grade Ranges Bar Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Grade Ranges</h6>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="gradeRangesChart" style="height: 300px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
 
-    <div class="col-xl-8 col-lg-7 d-flex justify-content-center">
-        <!-- Grade Ranges Bar Chart -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Grade Ranges</h6>
-            </div>
-            <div class="card-body d-flex justify-content-center align-items-center">
-                <canvas id="gradeRangesChart" style="height: 300px; width: 800px;"></canvas>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-                    
-
-                    <div class="card shadow mb-4">
+                        <div class="col-lg-6 mb-4">
+                            <!-- Student Performance Scatter Plot -->
+                            <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Student Performance</h6>
                                 </div>
                                 <div class="card-body">
-                                    <canvas id="studentPerformanceChart" style="height: 300px; width: 400px;"></canvas>
+                                    <canvas id="studentPerformanceChart" style="height: 300px;"></canvas>
                                 </div>
                             </div>
-                    
-                    <div class="col-xl-4 col-lg-5">
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
                             <!-- Pass/Fail Pie Chart -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -118,8 +115,7 @@
                                 </div>
                             </div>
                         </div>
-
-                    
+                    </div>
                 </div>
             </div>
             <!-- Footer -->
