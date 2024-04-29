@@ -2,7 +2,6 @@
     Layout = null; // Assuming no layout is needed
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,100 +58,114 @@
                 </a>
             </li>
             <hr class="sidebar-divider">
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+
         </ul>
-                <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Performance Stats</h1>
 
+
+
+
+
+
+
+
                     <!-- Content Row -->
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <!-- Course Selection Dropdown -->
+                            <div class="mb-4">
+                                <label for="courseSelect">Select Course:</label>
+                                <select id="courseSelect" class="form-control">
+                                    <option value="course1">Math</option>
+                                    <option value="course2">DIS</option>
+                                    <option value="course3">Chemistry</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+
+    <!-- Grade Ranges Bar Chart -->
+    
 
 
-                    <!-- Course Selection Dropdown -->
-                    <div class="mb-4">
-                        <label for="courseSelect">Select Course:</label>
-                        <select id="courseSelect" class="form-control">
-                            <option value="course1">Math</option>
-                            <option value="course2">DIS</option>
-                            <option value="course3">Chemistry</option>
-                        </select>
+
+
+
+
+        <div class="row">
+
+            <div class="col-md-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Grade Ranges</h6>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="gradeRangesChart" style="height: 300px;"></canvas>
                     </div>
                 </div>
-
-
-
-
-                <div class="col-lg-12 mb-4">
-                    <!-- Student Performance Scatter Plot -->
-                    <div class="card shadow">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Grade Ranges</h6>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="gradeRangesChart" style="height: 300px;"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mb-12">
-                    <!-- Student Performance Scatter Plot -->
-                    <div class="card shadow mx-auto">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Pass/Fail</h6>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="passFailChart" style="height: 30px; width: 100%;"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="col-lg-12 mb-4">
-                    <!-- Student Performance Scatter Plot -->
-                    <div class="card shadow">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Student Performance</h6>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="studentPerformanceChart" style="height: 300px;"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
 
+
+            <div class="col-md-6 mb-4">
+                <!-- Pass/Fail Pie Chart -->
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Pass/Fail</h6>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="passFailChart" style="height: 240px;"></canvas>
+                    </div>
+                </div>
+            </div>
+                 
+
+
+            <div class="col-lg-12 mb-4">
+                <!-- Student Performance Scatter Plot -->
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Student Performance</h6>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="studentPerformanceChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="text-center">
+                        <span>Copyright &copy; SPADE @DateTime.Now.Year</span>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 
     <!-- Custom scripts for all pages -->
     <script src="~/js/sb-admin-2.min.js"></script>
 
-    <!-- Chart Initialization and Data -->
     <script>
     // Dummy data for pass and fail counts
     const passFailData = {
-        labels: ['Pass', 'Fail'],
-        datasets: [{
-            data: [70, 30], // Sample data (number of students who passed and failed)
-            backgroundColor: ['#00b894', '#ff6b6b']
-        }]
+        course1: [70, 30], // Sample data (number of students who passed and failed) for course 1
+        course2: [60, 40], // Sample data for course 2
+        course3: [80, 20]  // Sample data for course 3
     };
 
     // Dummy data for grade ranges bar chart
     const gradeRangesData = {
-        labels: ['0-60', '61-70', '71-80', '81-90', '91-100'],
-        datasets: [{
-            label: 'Grade Range',
-            backgroundColor: ['#ff6b6b', '#f9ca24', '#00b894', '#0984e3', '#6c5ce7'],
-            data: [10, 20, 30, 25, 15] // Sample data (number of students in each range)
-        }]
+        course1: [10, 20, 30, 25, 15], // Sample data (number of students in each range) for course 1
+        course2: [15, 25, 35, 20, 5],  // Sample data for course 2
+        course3: [5, 15, 40, 30, 10]    // Sample data for course 3
     };
 
     // Dummy data for student performance scatter plot
@@ -180,8 +193,15 @@
     document.addEventListener('DOMContentLoaded', function () {
         const passFailChart = new Chart(document.getElementById('passFailChart'), {
             type: 'pie',
-            data: passFailData,
+            data: {
+                labels: ['Pass', 'Fail'],
+                datasets: [{
+                    data: passFailData.course1, // Default data for initial course
+                    backgroundColor: ['#00b894', '#ff6b6b']
+                }]
+            },
             options: {
+                responsive: true,
                 legend: {
                     position: 'right'
                 }
@@ -190,8 +210,16 @@
 
         const gradeRangesChart = new Chart(document.getElementById('gradeRangesChart'), {
             type: 'bar',
-            data: gradeRangesData,
+            data: {
+                labels: ['0-60', '61-70', '71-80', '81-90', '91-100'],
+                datasets: [{
+                    label: 'Grade Range',
+                    backgroundColor: ['#ff6b6b', '#f9ca24', '#00b894', '#0984e3', '#6c5ce7'],
+                    data: gradeRangesData.course1 // Default data for initial course
+                }]
+            },
             options: {
+                responsive: true,
                 legend: { display: false },
                 scales: {
                     xAxes: [{ gridLines: { display: false } }],
@@ -236,6 +264,7 @@
         });
     });
 </script>
+
 
 </body>
 </html>
